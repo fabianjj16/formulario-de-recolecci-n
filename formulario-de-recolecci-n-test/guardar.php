@@ -15,18 +15,32 @@ if ($conn->connect_error) {
 }
 
 // Obtener datos del formulario
+//tabla personal de recoleccio 
+$nombre = $_POST['nombre'];
+$rol = $_POST['rol'];
+$turno_trabajo = $_POST['turno_trabajo'];
+$identificacion = $_POST['identificacion'];
+//tabla tipos de residuos
 $tipo = $_POST['tipo'];
 $descripcion = $_POST['descripcion'];
 $volumen = $_POST['volumen'];
 $fecha = $_POST['fecha'];
+//tabla datos punto de recoleccion
 $ubicacion = $_POST['ubicacion'];
 $tipo_punto = $_POST['tipo_punto'];
 $capacidad = $_POST['capacidad'];
 $horario_recoleccion = $_POST['horario_recoleccion'];
-$identificacion = $_POST['identificacion'];
-$tipo_vehiculo = $_POST['tipo_vehiculo'];
-$capacidad_carga = $_POST['capacidad_carga'];
-$estado_vehiculo = $_POST['estado_vehiculo'];
+//rutas de recoleccion
+$identificacion_persona = $_POST['identificacion_persona'];
+$puntos_asignados = $_POST['punto_asignado'];
+$horario = $_POST['horario'];
+$frecuencia = $_POST['frecuencia'];
+//datos veiculo
+$placa = $_POST['placa']
+#$tipo_vehiculo = $_POST['tipo_vehiculo'];
+#$capacidad_carga = $_POST['capacidad_carga'];
+#$estado_vehiculo = $_POST['estado_vehiculo'];
+
 
 // Insertar datos en tipos_residuos
 $sql_residuos = "INSERT INTO tipos_residuos (tipo, descripcion, volumen_peso, fecha_generacion) VALUES ('$tipo', '$descripcion', '$volumen', '$fecha')";
@@ -43,8 +57,16 @@ $conn->query($sql_puntos);
 $ultimo_id_punto = $conn->insert_id;
 
 // Insertar datos en personal_recoleccion
-$sql_vehiculo = "INSERT INTO personal_recoleccion (identificacion, nombre, rol, turno_trabajo) VALUES ('$identificacion', '$tipo_vehiculo', '$capacidad_carga', '$estado_vehiculo')";
+$sql_personal = "INSERT INTO personal_recoleccion (identificacion, nombre, rol, turno_trabajo) VALUES ('$identificacion', '$nombre', '$rol', '$turno_trabajo')";
+$conn->query($sql_personal);
+
+//Inserta datos en vehiculo_recoleccion
+$sql_vehiculo = "INSERT INTO datos_veiculos_recoleccion (identificacion, tipo_vehiculo, capacidad_carga, frecuencia) VALUES ('$placa', '$tipo_vehiculo', '$capacidad_carga', '$estado_vehiculo')";
 $conn->query($sql_vehiculo);
+
+//Inserta datos en rutas_recoleccion
+$sql_rutas = "INSERT INTO rutas_recoleccion (identificacion, puntos_asignados, horario, frecuencia) VALUES ('$identificacion_persona', '$puntos_asignados', '$horario', '$frecuencia')";
+$conn->query($sql_rutas;
 
 // Verificar si las consultas fueron exitosas
 if ($conn->affected_rows > 0) {
