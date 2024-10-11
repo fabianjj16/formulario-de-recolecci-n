@@ -7,21 +7,21 @@ if (isset($_SESSION['username'])) {
     exit();
 }
 
+if (isset($_GET['message']) && $_GET['message'] == 'cuenta_eliminada') {
+    $mensaje = "Tu cuenta ha sido eliminada correctamente.";
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Prevenir inyección SQL
     $username = $conn->real_escape_string($username);
-
-    // Buscar el usuario en la base de datos
     $sql = "SELECT * FROM usuarios WHERE username = '$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        // Verificar la contraseña
         if (password_verify($password, $user['password'])) {
             $_SESSION['username'] = $user['username'];
             header("Location: formulario.php");
@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <h2>Iniciar Sesión</h2>
+        <?php if (isset($mensaje)) { echo "<p class='success'>$mensaje</p>"; } ?>
         <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
         <form method="POST" action="index.php">
             <label for="username">Usuario:</label>

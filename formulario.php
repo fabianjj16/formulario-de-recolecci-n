@@ -15,6 +15,7 @@ if (!isset($_SESSION['username'])) {
 <body>
     <div class="container">
         <h2>Bienvenido, <?php echo $_SESSION['username']; ?> | <a href="logout.php">Cerrar Sesión</a></h2>
+        <p><a href="eliminar_cuenta.php" onclick="return confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción es irreversible.');" class="eliminar-cuenta">Eliminar Cuenta</a></p>
         <form id="residuoForm" method="POST" action="guardar.php">
             <!-- Aquí va todo el contenido del formulario que tenías en index.php -->
             <!-- ... (todo el contenido del formulario original) -->
