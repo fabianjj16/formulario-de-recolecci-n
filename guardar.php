@@ -47,7 +47,7 @@ $sql_personal = "INSERT INTO personal_recoleccion (identificacion, nombre, rol, 
 $conn->query($sql_personal);
 
 // Insertar datos en datos_vehiculo_recoleccion
-$sql_vehiculo = "INSERT INTO datos_vehiculo_recoleccion (identificacion, tipo_vehiculo, capacidad_carga, estado_vehiculo) VALUES ('$placa', '$tipo_vehiculo', '$capacidad_carga', '$estado_vehiculo')";
+$sql_vehiculo = "INSERT INTO datos_vehiculo_recoleccion (identificacion, tipo_vehiculo, capacidad_carga, frecuencia) VALUES ('$placa', '$tipo_vehiculo', '$capacidad_carga', '$estado_vehiculo')";
 $conn->query($sql_vehiculo);
 
 // Insertar datos en rutas_recoleccion
