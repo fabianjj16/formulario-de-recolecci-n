@@ -27,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: formulario.php");
             exit();
         } else {
-            $error = "Contraseña incorrecta";
+            $error = "Usuario O Contraseña incorrecta";
         }
     } else {
-        $error = "Usuario no encontrado";
+        $error = "Usuario no encontrado O Contraseña incorrecta";
     }
 }
 ?>
