@@ -37,41 +37,76 @@ if (!isset($_SESSION['username'])) {
             <!-- Div que contiene todos los campos del formulario, oculto por defecto -->
             <div id="datos" style="display: none;">
                 <!-- Datos Usuario Doméstico -->
-                 <div class="datos-domestico">
-                <div id="datos-domestico" style="display: none;">
-                    <h3>Datos Usuario Doméstico</h3>
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                    <label for="direccion">Dirección</label>
-                    <input type="text" id="direccion" name="direccion" required>
-                    <label for="barrio">Barrio</label>
-                    <input type="text" id="barrio" name="barrio" required>
-                    <label for="municipio">Municipio</label>
-                    <select id="municipio" name="municipio" required>
-                        <option value="1">Girardot</option>
-                        <option value="2">Ricaurte</option>
-                        <option value="3">Flandes</option>
-                    </select>
-                    <label for="num_personas">Número de personas que habitan la vivienda</label>
-                    <input type="number" id="num_personas" name="num_personas" required>
+                 <!-- Datos Usuario Doméstico -->
+<div class="datos-domestico">
+    <div id="datos-domestico" style="display: none;">
+        <h3>Datos Usuario Doméstico</h3>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+        
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion" required>
+        
+        <label for="barrio">Barrio</label>
+        <input type="text" id="barrio" name="barrio" required>
+        
+        <label for="municipio">Municipio</label>
+        <select id="municipio" name="municipio" required>
+            <option value="1">Girardot</option>
+            <option value="2">Ricaurte</option>
+            <option value="3">Flandes</option>
+        </select>
+        
+        <label for="num_personas">Número de personas que habitan la vivienda</label>
+        <input type="number" id="num_personas" name="num_personas" required>
 
-                    <h3>Datos de Contacto</h3>
-                <label for="nombre_contacto">Nombre de la persona de contacto</label>
-                <input type="text" id="nombre_contacto" name="nombre_contacto" required>
-                <label for="cedula_contacto">Cédula</label>
-                <input type="text" id="cedula_contacto" name="cedula_contacto" required>
-                <label for="celular_contacto">Celular</label>
-                <input type="text" id="celular_contacto" name="celular_contacto" required>
-                <label for="correo_contacto">Correo electrónico</label>
-                <input type="email" id="correo_contacto" name="correo_contacto" required>
+        <h3>Datos de Contacto</h3>
+        <label for="nombre_contacto">Nombre de la persona de contacto</label>
+        <input type="text" id="nombre_contacto" name="nombre_contacto" required>
+        
+        <label for="cedula_contacto">Cédula</label>
+        <input type="text" id="cedula_contacto" name="cedula_contacto" required>
+        
+        <label for="celular_contacto">Celular</label>
+        <input type="text" id="celular_contacto" name="celular_contacto" required>
+        
+        <label for="correo_contacto">Correo electrónico</label>
+        <input type="email" id="correo_contacto" name="correo_contacto" required>
 
-                <label for="horario_recoleccion">Horario de recolección</label>
-                <select id="horario_recoleccion" name="horario_recoleccion" required>
-                    <option value="1">Mañana: 8:00 a.m. - 12:00 p.m.</option>
-                    <option value="2">Tarde: 2:00 p.m. - 5:00 p.m.</option>
-                </select>
-                </div>
-                </div>
+        <!-- Tipos de Residuos -->
+        <label>Tipos de residuos:</label><br>
+        <div class="content-check">
+            <div class="checkbox-item">
+                <input type="checkbox" id="plastico" name="tipos_residuos[]" value="1">
+                <label for="plastico">Plástico</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="carton" name="tipos_residuos[]" value="2">
+                <label for="carton">Cartón</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="papel" name="tipos_residuos[]" value="3">
+                <label for="papel">Papel</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="metal" name="tipos_residuos[]" value="4">
+                <label for="metal">Metal</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="vidrio" name="tipos_residuos[]" value="5">
+                <label for="vidrio">Vidrio</label>
+            </div>
+        </div>
+
+        <!-- Horario de Recolección (debajo de Tipos de Residuos) -->
+        <label for="horario_recoleccion">Horario de recolección</label>
+        <select id="horario_recoleccion" name="horario_recoleccion" required>
+            <option value="1">Mañana: 8:00 a.m. - 12:00 p.m.</option>
+            <option value="2">Tarde: 2:00 p.m. - 5:00 p.m.</option>
+        </select>
+    </div>
+</div>
+
                 <!-- Datos Usuario Comercial -->
                 <div id="datos-comercial" style="display: none;">
                     <h3>Datos Usuario Comercial</h3>
@@ -101,21 +136,6 @@ if (!isset($_SESSION['username'])) {
                     <!-- Horario de Recolección -->
                 <!-- <label for="horario_recoleccion">Horario de recolección</label>
                 <input type="text" id="horario_recoleccion" name="horario_recoleccion" required> -->
-                </div>
-                
-
-                <!-- Datos de Contacto (comunes) -->
-                <!-- <h3>Datos de Contacto</h3>
-                <label for="nombre_contacto">Nombre de la persona de contacto</label>
-                <input type="text" id="nombre_contacto" name="nombre_contacto" required>
-                <label for="cedula_contacto">Cédula</label>
-                <input type="text" id="cedula_contacto" name="cedula_contacto" required>
-                <label for="celular_contacto">Celular</label>
-                <input type="text" id="celular_contacto" name="celular_contacto" required>
-                <label for="correo_contacto">Correo electrónico</label>
-                <input type="email" id="correo_contacto" name="correo_contacto" required> -->
-
-               <!-- Tipos de Residuos -->
                 <label>Tipos de residuos:</label><br>
                 <div class="content-check">
                     <div class="checkbox-item">
@@ -143,6 +163,48 @@ if (!isset($_SESSION['username'])) {
                         <label for="vidrio">Vidrio</label>
                     </div>
                 </div>
+                </div>
+                
+
+                <!-- Datos de Contacto (comunes) -->
+                <!-- <h3>Datos de Contacto</h3>
+                <label for="nombre_contacto">Nombre de la persona de contacto</label>
+                <input type="text" id="nombre_contacto" name="nombre_contacto" required>
+                <label for="cedula_contacto">Cédula</label>
+                <input type="text" id="cedula_contacto" name="cedula_contacto" required>
+                <label for="celular_contacto">Celular</label>
+                <input type="text" id="celular_contacto" name="celular_contacto" required>
+                <label for="correo_contacto">Correo electrónico</label>
+                <input type="email" id="correo_contacto" name="correo_contacto" required> -->
+
+               <!-- Tipos de Residuos -->
+                <!-- <label>Tipos de residuos:</label><br>
+                <div class="content-check">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="plastico" name="tipos_residuos[]" value="1">
+                        <label for="plastico">Plástico</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="carton" name="tipos_residuos[]" value="2">
+                        <label for="carton">Cartón</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="papel" name="tipos_residuos[]" value="3">
+                        <label for="papel">Papel</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="metal" name="tipos_residuos[]" value="4">
+                        <label for="metal">Metal</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="vidrio" name="tipos_residuos[]" value="5">
+                        <label for="vidrio">Vidrio</label>
+                    </div>
+                </div> -->
 
                 <!-- Horario de Recolección
                 <label for="horario_recoleccion">Horario de recolección</label>
